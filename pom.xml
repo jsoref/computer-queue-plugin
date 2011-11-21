@@ -56,9 +56,9 @@
   </pluginRepositories>
   
   <scm>
-    <connection>scm:git:ssh://github.com/jenkinsci/MYPLLUGINNAME.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/MYPLUGINNAME.git</developerConnection>
-    <url>https://github.com/jenkinsci/MYPLUGINNAME</url>
+    <connection>scm:git:ssh://github.com/jenkinsci/computer-queue-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/computer-queue-plugin.git</developerConnection>
+    <url>https://github.com/jenkinsci/computer-queue-plugin</url>
   </scm>
   
 </project>
