@@ -13,8 +13,9 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- *
- * @author lucinka
+ * Updating a computer queue is the only purpose of this class
+ * 
+ * @author Lucie Votypkova
  */
 @Extension
 public class QueueUpdateActionFactory extends TransientComputerActionFactory{

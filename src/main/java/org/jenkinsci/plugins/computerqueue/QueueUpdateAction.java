@@ -9,8 +9,10 @@ import hudson.model.ComputerPanelBox;
 import hudson.model.Hudson;
 
 /**
+ * Updating a computer queue through Ajax is the only propose of this class
  *
- * @author lucinka
+ * @author Lucie Votypkova
+ * 
  */
 public class QueueUpdateAction implements Action{
     

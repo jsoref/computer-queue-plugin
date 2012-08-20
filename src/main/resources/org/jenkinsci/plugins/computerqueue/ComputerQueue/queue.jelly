@@ -57,6 +57,7 @@
   <!-- schedule updates only for the full page reload -->
   <j:if test="${ajax==null and !h.isAutoRefresh(request) and h.hasPermission(app.READ)}">
     <script defer="defer">
+      <!-- delegate the updation on updateQueue action -->
       refreshPart('buildQueue',"./updateQueue/ajaxBuildQueue");
     </script>
   </j:if>

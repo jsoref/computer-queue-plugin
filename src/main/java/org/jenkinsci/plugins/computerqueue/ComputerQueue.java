@@ -15,7 +15,6 @@ import java.util.List;
 public class ComputerQueue extends ComputerPanelBox {
 
     public List<BuildableItem> items() {
-        System.out.println("Calling");
         return Hudson.getInstance().getQueue().getBuildableItems(super.getComputer());
     }
     
