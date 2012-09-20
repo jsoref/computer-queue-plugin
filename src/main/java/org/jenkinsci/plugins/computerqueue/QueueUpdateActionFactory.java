@@ -21,9 +21,9 @@ import java.util.List;
 public class QueueUpdateActionFactory extends TransientComputerActionFactory{
 
     @Override
-    public Collection<? extends Action> createFor(Computer cmptr) {
+    public Collection<? extends Action> createFor(Computer computer) {
         List<Action> actions = new ArrayList<Action>();
-        actions.add(new QueueUpdateAction());
+        actions.add(new QueueUpdateAction(computer));
         return actions;
     }
     

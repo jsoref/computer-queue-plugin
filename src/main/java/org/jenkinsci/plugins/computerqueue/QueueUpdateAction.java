@@ -5,6 +5,7 @@
 package org.jenkinsci.plugins.computerqueue;
 
 import hudson.model.Action;
+import hudson.model.Computer;
 import hudson.model.ComputerPanelBox;
 import hudson.model.Hudson;
 
@@ -16,12 +17,18 @@ import hudson.model.Hudson;
  */
 public class QueueUpdateAction implements Action{
     
+    private Computer computer;
+    
+    public QueueUpdateAction(Computer computer){
+        this.computer=computer;
+    }
+    
     public String getIconFileName() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return null;
     }
 
     public String getDisplayName() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return null;
     }
 
     public String getUrlName() {
@@ -29,7 +36,13 @@ public class QueueUpdateAction implements Action{
     }
     
     public ComputerQueue getComputerQueue(){
-        return Hudson.getInstance().getExtensionList(ComputerPanelBox.class).get(ComputerQueue.class);
+        for(ComputerPanelBox box: computer.getComputerPanelBoxs()){
+            if(box instanceof ComputerQueue)
+                return (ComputerQueue) box;
+        }
+        ComputerQueue queue = new ComputerQueue();
+        queue.setComputer(computer);
+        return queue;
     }
     
     
