@@ -1,9 +1,11 @@
 package org.jenkinsci.plugins.computerqueue;
 
 import hudson.Extension;
-import hudson.model.Hudson;
-import hudson.model.ComputerPanelBox;
+import hudson.model.*;
 import hudson.model.Queue.BuildableItem;
+import jenkins.model.Jenkins;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +17,17 @@ import java.util.List;
 public class ComputerQueue extends ComputerPanelBox {
 
     public List<BuildableItem> items() {
-        return Hudson.getInstance().getQueue().getBuildableItems(super.getComputer());
+        List<BuildableItem> buildableItems = new ArrayList<BuildableItem>();
+        Node node = super.getComputer().getNode();
+        List<Queue.Item> approximateItemsQuickly = Jenkins.getInstance().getQueue().getApproximateItemsQuickly();
+        for (Queue.Item item : approximateItemsQuickly) {
+            if (item instanceof BuildableItem) {
+                Queue.BuildableItem item1 = (BuildableItem) item;
+                if (node.canTake(item1) == null)
+                    buildableItems.add(item1);
+            }
+        }
+        return buildableItems;
     }
     
 }
